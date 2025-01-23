@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  tesseract-ocr:
+    build: .
+    container_name: tesseract-ocr
+    restart: unless-stopped
+    environment:
+      - MAX_FILE_SIZE
+      - SERVER_PORT
+      - API_BASE_PATH
+      - TESSDATA_PATH
+      - TESSERACT_LANGUAGE
+      - TESSERACT_DPI
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
